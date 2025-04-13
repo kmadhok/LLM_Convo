@@ -238,6 +238,8 @@ def no_wake_transcribe_from_microphone_simplified(duration=5, model_size="base",
     Returns:
         str: Transcribed speech or None if no speech detected
     """
+    import os
+    os.environ["CUDA_VISIBLE_DEVICES"] = ""  # 👈 Prevent GPU queries
     # Load transcription model
     print(f"Loading transcription model: {model_size}")
     transcription_model = WhisperModel(model_size, device=device)
