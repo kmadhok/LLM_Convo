@@ -9,6 +9,8 @@ from transcribe import no_wake_transcribe_from_microphone_simplified, transcribe
 from groq_integration import get_llm_response, get_groq_response
 from tts_speech import text_to_speech
 
+os.environ["CUDA_VISIBLE_DEVICES"] = ""  # 👈 Add this here
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your-secret-key'
 socketio = SocketIO(app, cors_allowed_origins="*")
